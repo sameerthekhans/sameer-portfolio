@@ -1,0 +1,20 @@
+nav {
+  display: flex;
+  padding: 1rem;
+}
+
+a {
+  text-decoration: none;
+  padding: 0.5rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+a:not(:first-child):not(.logo) {
+  margin-left: 1rem;
+}
+
+a.logo {
+  font-size: 3rem;
+}

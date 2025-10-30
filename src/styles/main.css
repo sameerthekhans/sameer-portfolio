@@ -1,0 +1,32 @@
+main {
+  height: calc(100% - var(--nav-height));
+  display: grid;
+  place-items: center;
+}
+
+h1,
+p {
+  color: white;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+p {
+  font-weight: bold;
+}
+
+p.greeting {
+  font-size: 2.5rem;
+}
+
+p.role {
+  text-align: right;
+}
+
+.paper-plane {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+}
