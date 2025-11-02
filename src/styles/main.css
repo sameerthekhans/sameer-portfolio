@@ -2,15 +2,15 @@ main {
   height: calc(100% - var(--nav-height));
   display: grid;
   place-items: center;
+  text-align: center;
 }
 
-h1,
-p {
-  color: white;
+h1.name {
+  font-size: 3.5rem;
 }
 
-h1 {
-  font-size: 5rem;
+h1.role {
+  font-size: 2rem;
 }
 
 p {
@@ -21,12 +21,6 @@ p.greeting {
   font-size: 2.5rem;
 }
 
-p.role {
-  text-align: right;
-}
-
-.paper-plane {
-  position: absolute;
-  left: 50px;
-  top: 50%;
+.headings-container {
+  position: relative;
 }

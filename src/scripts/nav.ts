@@ -1,4 +1,4 @@
-import { gsap } from "gsap";
+/* import { gsap } from "gsap";
 
 gsap.from("nav a", {
   y: -100,
@@ -7,3 +7,4 @@ gsap.from("nav a", {
   stagger: 0.1,
   ease: "back",
 });
+ */

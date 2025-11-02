@@ -1,5 +1,7 @@
 :root {
   --nav-height: 67px;
+  --primary-color: #4facfe;
+  --primary-gradient: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
 }
 
 * {
@@ -14,13 +16,17 @@ body {
 }
 
 body {
-  font-family: system-ui;
-  background: radial-gradient(circle, gray 1px, transparent 1px),
-    radial-gradient(circle, #7c2fea, #7429ea, #6c22ea, #621aeb, #5812eb);
-  background-size: 20px 20px, 100% 100%;
-  background-attachment: fixed, fixed;
+  font-family: "Momo Trust Display", sans-serif;
 }
 
 .flex-spacer {
   flex: 1;
+}
+
+.primary-text,
+.primary-text * {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
