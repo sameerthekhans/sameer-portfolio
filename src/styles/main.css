@@ -1,3 +1,58 @@
+/* Layout: horizontal, swipeable full-screen sections (mobile-first)
+   - `main` is a horizontal flex container with horizontal scroll.
+   - each section becomes a full viewport-width/height panel to the right.
+*/
+
+/* For GSAP horizontal pin animation we use a panels container inside main.
+   Mobile still works with touch but GSAP will take over pinning on larger viewports.
+*/
 main {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.panels {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
   height: 100%;
+}
+
+/* Each section is a full viewport panel */
+section {
+  flex: 0 0 100vw;
+  min-width: 100vw;
+  height: 100vh;
+}
+
+/* Simple visual: hide default scrollbar on WebKit (mobile-friendly) */
+main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Styles for skills panel */
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #111;
+  padding: 2rem;
+}
+
+.skills-section h1 {
+  margin-bottom: 1rem;
+}
+
+.skills-section ul {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: 1fr;
+  padding: 0;
+}
+
+.skills-section li {
+  font-size: 1rem;
 }
