@@ -1,44 +1,80 @@
 .intro-section {
   min-width: 100vw;
-  height: 100vh;
-
-  background: #ff416c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #ff4b2b,
-    #ff416c
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #ff4b2b,
-    #ff416c
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100vh; /* Fallback */
+  height: 100svh; /* Small Viewport Height - fits when browser UI is visible */
+  background: #000; /* Dark background to match skills */
   color: white;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.intro-section h1 {
-  font-size: 3.5rem;
-  margin: 0.2rem 0;
   text-align: center;
+  padding: 2rem;
+  padding-bottom: max(2rem, env(safe-area-inset-bottom)); /* iOS safe area */
 }
 
-.intro-section h2 {
-  font-size: 1.5rem;
-  margin: 0.2rem 0 1rem 0;
-  text-align: center;
+.intro-content {
+  opacity: 0; /* Hidden initially for GSAP */
+  transform: translateY(20px);
 }
 
-.intro-section .greetings {
+.name {
+  font-size: 4rem;
+  margin: 0.5rem 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b, #fbc2eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.role {
+  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.greetings {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
-.intro-section .swipe-hint {
-  margin-bottom: 1rem;
+.swipe-hint {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0; /* Hidden initially for GSAP */
   font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.swipe-hint svg {
+  animation: bounceLeft 1.5s infinite;
+}
+
+@keyframes bounceLeft {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px); /* Move left */
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .name {
+    font-size: 3rem;
+  }
+  .role {
+    font-size: 1.5rem;
+  }
 }

@@ -7,22 +7,45 @@
    Mobile still works with touch but GSAP will take over pinning on larger viewports.
 */
 main {
-  height: 100vh;
+  width: 100vw;
+  height: 100vh; /* Fallback */
+  height: 100svh; /* Small Viewport Height - fits when browser UI is visible */
   overflow: hidden;
 }
 
 .panels {
-  display: flex;
-  flex-direction: row;
   width: 100%;
   height: 100%;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Hide scrollbar */
+.panels::-webkit-scrollbar {
+  display: none;
+}
+.panels {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.panels > section {
+  min-width: 100vw;
+  height: 100vh; /* Fallback */
+  height: 100svh; /* Small Viewport Height - fits when browser UI is visible */
+  scroll-snap-align: start;
+  flex-shrink: 0;
 }
 
 /* Each section is a full viewport panel */
 section {
   flex: 0 0 100vw;
-  min-width: 100vw;
-  height: 100vh;
+  height: 100vh; /* Fallback */
+  height: 100svh; /* Small Viewport Height - fits when browser UI is visible */
 }
 
 /* Simple visual: hide default scrollbar on WebKit (mobile-friendly) */
@@ -31,28 +54,4 @@ main::-webkit-scrollbar {
 }
 
 /* Styles for skills panel */
-.skills-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  color: #111;
-  padding: 2rem;
-}
-
-.skills-section h1 {
-  margin-bottom: 1rem;
-}
-
-.skills-section ul {
-  list-style: none;
-  display: grid;
-  gap: 0.6rem;
-  grid-template-columns: 1fr;
-  padding: 0;
-}
-
-.skills-section li {
-  font-size: 1rem;
-}
+/* Styles for skills panel are now in skills.css */
